@@ -1,2 +1,1 @@
-# Password_Generator
-JavaScript- used to generate secure passwords
+# Password Generator Starter Code
