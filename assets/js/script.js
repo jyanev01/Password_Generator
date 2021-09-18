@@ -1,24 +1,61 @@
-// Assignment code here
+// ASSIGNMENT CODE HERE
 
+// variables broken out into upper, lowercase, numbers or characters.
+  var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
+  var lowerChar = "abcdefghijklmnopqrstuvwxyz"; 
+  var numbericalChar = "1234567890"; 
+  var symbolChar= "!@#$%^&*()_+";
 
 
 
 function generatePassword() {
-  // prompt I choose a length of at least 8 characters and no more than 128 characters
   // 
+  var password = "";
+  var passwordChar ="";
+  // creates user prompt to select password length
 
+  var passwordLengthUser = prompt("How many characters would you like your password to be? Password must be between 8 to 128 characters.");
+  passwordLengthUser = parseInt(passwordLengthUser);
 
-  // possible values
-  let values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
-  l            "abcdefghijklmnopqrstuvwxyz" "1234567890" "!@#$%^&*()_+";
+  // if lenght selected is not between 8-128 characters
+  if (passwordLengthUser < 8 || passwordLengthUser >128) {
+    alert("Password lenght must be between 8 to 128 characters!");
+    return "";
+  }
 
-  let password ="";
+  // Selection: ONLY uppercase letters 
+  var upperCharSelection = confirm("Would you only like to have UPPERCASE letters?");
+
+  if(upperCharSelection) {
+    passwordChar += upperChar;
+  }
+
+  // Selection: ONLY lower case letters
+
+  var lowerCharSelection = confirm("Would you only like to have LOWERCASE letters?");
+
+  if(lowerCharSelection) {
+    passwordChar += lowerChar;
+  }
+
+  // Selection: numbers in password
+   var numbersCharSelection = confirm("Would you like to add NUMBERS to your password?");
+
+   if(numbersCharSelection) {
+     passwordChar += numbericalChar;
+   }
+
+  //  Selection: special characters "!@#$%^&*()_+"
+  var specialCharSelection = confirm ("Would you like to include the following:!@#$%^&*()_+ special characters?");
+
+  if(specialCharSelection) {
+    passwordChar += symbolChar;
+  }
 
   //  create for loop to choose password characters
-  for (var i = 0; i <= complexity; i++) {
-    password = password + values.charAt(Math.floor(Math.random()*values.length ));
+  for (var i = 0; i <= passwordLengthUser; i++) {
+    password = passwordChar.charAt(Math.floor(Math.random()*passwordChar.length));
   }
-  return password;
 };
 
 // Get references to the #generate element
@@ -32,6 +69,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
