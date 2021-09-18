@@ -48,11 +48,11 @@ function generatePassword() {
    }
 
   //  Selection: special characters "!@#$%^&*()_+"
-  var specialCharSelection = confirm ("Would you like to include the following:!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ special characters?");
+  var specialCharSelection = confirm ("Would you like to include the following:!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ SPECIAL CHARACTERS from owasp.org?");
 
   if(specialCharSelection) {
     passwordChar += symbolChar;
-  }
+  } 
 
   //  create for loop to choose password characters
   for (var i = 0; i < passwordLengthUser; i++) {
