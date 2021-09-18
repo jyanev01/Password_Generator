@@ -7,12 +7,13 @@
   var lowerChar = "abcdefghijklmnopqrstuvwxyz"; 
   var numericalChar = "1234567890"; 
   var symbolChar= "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  
 
-  var password ="";
-  var passwordChar ="";
 
 function generatePassword() {
-  
+  var password = "";
+  var passwordChar ="";
+
 
   // creates user prompt to select password length
   var passwordLengthUser = prompt("How many characters would you like your password to be? Password must be between 8 to 128 characters.");
@@ -57,7 +58,8 @@ function generatePassword() {
   for (var i = 0; i < passwordLengthUser; i++) {
     password = password + passwordChar.charAt(Math.floor(Math.random() * passwordChar.length));
   }
-  console.log(password);
+  
+  return password;
 };
 
 // Get references to the #generate element
@@ -73,6 +75,6 @@ function writePassword() {
 
 }
 
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
